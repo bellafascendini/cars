@@ -1,6 +1,6 @@
 ---
 title: "lab7?"
-author: "Maddy Paxson"
+author: "Maddy Paxson & Bella Fascendini"
 date: "`r Sys.Date()`"
 output: html_document
 ---
@@ -26,7 +26,13 @@ head(mtcars)
 T-Test
 
 ```{r}
-t_test_result <- t.test(mpg ~ am, data = mtcars)
+cars %>%
+  as_tibble() %>%
+  mutate(speed_group = if_else(speed > median(speed), 
+                              "high_speed", 
+                              "low_speed")) %>%
+  with(t.test(dist[speed_group == "high_speed"],
+              dist[speed_group == "low_speed"]))
 
 ```
 
