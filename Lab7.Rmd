@@ -1,0 +1,38 @@
+---
+title: "lab7?"
+author: "Maddy Paxson"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## An example of a T-Test and linear regression
+
+```{r}
+# Load the datasets package (not strictly necessary since it's loaded by default)
+library(datasets)
+
+# View a list of available datasets
+data()
+
+# Load and display the "mtcars" dataset
+data(mtcars)
+head(mtcars)
+```
+
+T-Test
+
+```{r}
+t_test_result <- t.test(mpg ~ am, data = mtcars)
+
+```
+
+Linear regression
+
+```{r}
+lm_example <- lm(mpg ~ hp + wt, data = mtcars)
+
+```
